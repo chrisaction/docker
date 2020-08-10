@@ -35,11 +35,11 @@ RUN tar -zxvf /usr/bin/caddy_v1.0.4_linux_amd64.tar.gz -C /usr/bin
 RUN chmod +x /usr/bin/caddy
 
 RUN mkdir /etc/ct
-RUN wget https://github.com/teddysun/v2ray-plugin/releases/download/v1.3.4/v2ray-plugin-linux-amd64-v1.3.4.tar.gz
-RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.4.tar.gz
+RUN wget https://github.com/teddysun/v2ray-plugin/releases/download/v1.3.5/v2ray-plugin-linux-amd64-v1.3.5.tar.gz
+RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.5.tar.gz
 RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 RUN chmod +x /usr/bin/v2ray-plugin
-RUN rm -r v2ray-plugin-linux-amd64-v1.3.4.tar.gz
+RUN rm -r v2ray-plugin-linux-amd64-v1.3.5.tar.gz
 
 #RUN git clone https://github.com/shadowsocks/v2ray-plugin
 #RUN cd /v2ray-plugin && go build
