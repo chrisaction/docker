@@ -18,18 +18,23 @@ jobs:
       run: |
         cd /home/runner
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: docker byxiaopeng/ssv2ray
+    - name: docker ssv2ray
       run: |
         cd /home/runner/work/docker/docker/ssv2ray
         docker build -t byxiaopeng/ssv2ray .
         docker push byxiaopeng/ssv2ray
-    - name: docker byxiaopeng/gdbot
+    - name: docker gdbot
       run: |
         cd /home/runner/work/docker/docker/gdbot
         docker build -t byxiaopeng/gdbot .
         docker push byxiaopeng/gdbot
-    - name: docker byxiaopeng/v2tls-docker
+    - name: docker v2tls-docker
       run: |
         cd /home/runner/work/docker/docker/v2tls-docker
         docker build -t byxiaopeng/v2tls-docker .
         docker push byxiaopeng/v2tls-docker        
+    - name: docker ibm-docker
+      run: |
+        cd /home/runner/work/docker/docker/ibm-docker
+        docker build -t byxiaopeng/ibm-docker .
+        docker push byxiaopeng/ibm-docker      
