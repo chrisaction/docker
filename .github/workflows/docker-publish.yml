@@ -37,4 +37,9 @@ jobs:
       run: |
         cd /home/runner/work/docker/docker/ibm-docker
         docker build -t byxiaopeng/ibm-docker .
-        docker push byxiaopeng/ibm-docker      
+        docker push byxiaopeng/ibm-docker
+    - name: docker qbdown
+      run: |
+        cd /home/runner/work/docker/docker/qbdown
+        docker build -t byxiaopeng/qbdown .
+        docker push byxiaopeng/qbdown        

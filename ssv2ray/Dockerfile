@@ -1,14 +1,7 @@
 FROM debian:latest
-#FROM archlinux:latest
-#RUN echo y | pacman -Syu
-#RUN echo y | pacman -S shadowsocks-libev wget git go
-#RUN echo y | pacman -S libsodium-dev
 #更新源
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt install shadowsocks-libev -y
-RUN apt install libsodium-dev -y
-RUN apt install wget -y
-RUN apt install git -y
+RUN apt install -y shadowsocks-libev libsodium-dev wget git
 #安装go
 #RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
 #RUN tar xvf go1.14.6.linux-amd64.tar.gz
@@ -46,6 +39,10 @@ RUN rm -r v2ray-plugin-linux-amd64-v1.3.5.tar.gz
 #RUN mv /v2ray-plugin/v2ray-plugin /usr/bin/v2ray-plugin
 #RUN chmod +x /usr/bin/v2ray-plugin
 RUN rm -rf /v2ray-plugin
+
+RUN mkdir /etc/ct
+RUN chgrp -R 0 /etc/ct
+RUN chmod -R g+rwX /etc/ct
 
 RUN mkdir /wwwroot
 RUN git clone https://github.com/xiongbao/we.dog
