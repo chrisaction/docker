@@ -4,8 +4,9 @@ on:
     #- cron: 10 22 * * *
   watch:
     types: started
-  branches:    
-    - master          
+  push:
+    branches:    
+      - master        
 jobs:
   build:
     runs-on: ubuntu-latest  
