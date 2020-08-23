@@ -4,6 +4,11 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt install wget curl bash git sudo python3-distutils -y
 RUN apt install python3 python3-pip -y
 
+#同步系统时间
+RUN apk add tzdata
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo "Asia/Shanghai" > /etc/timezone
+RUN apk del tzdata
 
 #下载机器人
 RUN git clone https://github.com/wrenfairbank/telegram_gcloner
