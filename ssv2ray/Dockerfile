@@ -1,25 +1,17 @@
-FROM debian:latest
+#FROM debian:latest
 #更新源
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt install -y shadowsocks-libev libsodium-dev wget git
-#安装go
-#RUN wget https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz
-#RUN tar xvf go1.14.6.linux-amd64.tar.gz
-#RUN rm -r go1.14.6.linux-amd64.tar.gz
-#RUN mv go /usr/local
-#RUN mv /usr/local/go/bin/go /usr/bin/go
-#RUN chmod +x /usr/bin/go
-
-#Install from source
-#RUN go get -u -v github.com/shadowsocks/go-shadowsocks2
-#RUN chmod +x /root/go/bin/go-shadowsocks2
-#RUN mv /root/go/bin/go-shadowsocks2 /usr/bin/go-shadowsocks2
-#RUN rm -rf /root/go
-#同步系统时间
-#RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+#RUN apt-get -y update && apt-get -y upgrade
+#RUN apt install -y shadowsocks-libev libsodium-dev wget git
+FROM archlinux:latest
+RUN echo y | pacman -Syu
+RUN echo y | pacman -S shadowsocks-libev wget git
+RUN echo y | pacman -S libsodium-dev
 
 #同步系统时间
-RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+#同步系统时间
+#RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 #ADD config.json /etc/shadowsocks-libev/config.json
 
@@ -31,11 +23,11 @@ RUN mkdir /etc/ct
 RUN chgrp -R 0 /etc/ct
 RUN chmod -R g+rwX /etc/ct
 
-RUN wget https://github.com/teddysun/v2ray-plugin/releases/download/v1.3.5/v2ray-plugin-linux-amd64-v1.3.5.tar.gz
-RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.5.tar.gz
+RUN wget https://github.com/teddysun/v2ray-plugin/releases/download/v1.4.1/v2ray-plugin-linux-amd64-v1.4.1.tar.gz
+RUN tar -zxvf v2ray-plugin-linux-amd64-v1.4.1.tar.gz
 RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 RUN chmod +x /usr/bin/v2ray-plugin
-RUN rm -r v2ray-plugin-linux-amd64-v1.3.5.tar.gz
+RUN rm -r v2ray-plugin-linux-amd64-v1.4.1.tar.gz
 
 #RUN git clone https://github.com/shadowsocks/v2ray-plugin
 #RUN cd /v2ray-plugin && go build
