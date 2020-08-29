@@ -5,7 +5,6 @@
 FROM archlinux:latest
 RUN echo y | pacman -Syu
 RUN echo y | pacman -S shadowsocks-libev wget git
-RUN echo y | pacman -S libsodium-dev
 
 #同步系统时间
 RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
