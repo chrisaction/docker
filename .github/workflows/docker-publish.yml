@@ -45,4 +45,9 @@ jobs:
       run: |
         cd /home/runner/work/docker/docker/qbdown
         docker build -t byxiaopeng/qbdown .
-        docker push byxiaopeng/qbdown        
+        docker push byxiaopeng/qbdown
+    - name: docker aria2-docker
+      run: |
+        cd /home/runner/work/docker/docker/aria2-docker
+        docker build -t byxiaopeng/aria2-docker .
+        docker push byxiaopeng/aria2-docker        
