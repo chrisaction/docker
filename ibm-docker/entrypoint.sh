@@ -1,6 +1,5 @@
 #!/bin/sh
 #ssh
-service ssh restart
 cat <<-EOF > /usr/local/etc/v2ray/config.json
 {
   "inbounds": [
@@ -32,7 +31,6 @@ cat <<-EOF > /usr/local/etc/v2ray/config.json
   ]
 }
 EOF
+nohup caddy -conf="/etc/Caddyfile"   >/usr/local/etc/caddy.txt 2>&1 &
 # Run V2Ray
-nohup /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json >v2.txt 2>&1 &
-
-caddy -conf="/etc/Caddyfile"
+v2ray -config /usr/local/etc/v2ray/config.json
