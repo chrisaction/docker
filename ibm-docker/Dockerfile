@@ -1,6 +1,6 @@
 FROM archlinux:latest
 RUN echo y | pacman -Sy
-RUN echo y | pacman -S v2ray glibc wget
+RUN echo y | pacman -S v2ray glibc wget git
 #同步系统时间
 RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
