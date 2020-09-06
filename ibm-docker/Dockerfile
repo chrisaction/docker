@@ -1,11 +1,8 @@
 FROM archlinux:latest
-RUN echo y | pacman -Syu
-RUN echo y | pacman -S wget curl git jq v2ray
+RUN echo y | pacman -Sy
+RUN echo y | pacman -S v2ray glibc wget
 #同步系统时间
 RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
-RUN mkdir /usr/local/etc/v2ray
-RUN touch /usr/local/etc/v2ray/config.json
 
 RUN wget -P /usr/bin https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_v1.0.4_linux_amd64.tar.gz
 RUN tar -zxvf /usr/bin/caddy_v1.0.4_linux_amd64.tar.gz -C /usr/bin
